@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tourism</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        
+    </head>
+    <body>
+        <div class="text-center">
+            <table class="table">
+                <tbody>
+                  <tr>
+                    <td>
+                        <input type="number" placeholder="Enter duration in seconds" id="time">
+                        <button type="submit" class="btn btn-light" onclick="changeImg()">Submit</button>
+                    </td>
+                    <td><img name="slide" width="400" height="200"></td>
+                    
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      
+                      <input style="padding: 5px; margin: 5px;" placeholder="Enter a number" type="number" name="num1" id='num1'>
+	                    <br>
+                      	<input style="padding: 5px; margin: 5px;" placeholder="Enter a number" type="number" name="num2" id="num2">
+	
+	                    <br>  
+	                      <button style="padding: 5px; margin: 5px;" onclick="add()">ADD</button>
+                      	<button style="padding: 5px; margin: 5px;" onclick="subtract()">SUBTRACT</button>
+                      	<button style="padding: 5px; margin: 5px;" onclick="multiply()">MULTIPLY</button>
+                        <button style="padding: 5px; margin: 5px;" onclick="divide()">DIVIDE</button>
+                        <br>
+                        <label style="border: 2px solid black;padding-left: 40px; padding-right: 40px;height: 30px;" id="display" ></label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                       <input onkeyup="emailValidation()" placeholder="Enter your email" id="email" type="email"> 
+                    </td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <script>
+          var i = 0; // Start point
+          var images = [];
+          var time = 1000;
+        
+          // Image List
+          images[0] = './img/image1.jpg';
+          images[1] = './img/image2.jpg';
+          images[2] = './img/image3.jpg';
+          images[3] = './img/image4.jpg';
+          images[4] = './img/image5.jpg';
+          images[5] = './img/image6.jpg';
+          images[6] = './img/image7.jpg';
+          images[7] = './img/image9.jpg';
+          images[8] = './img/image8.jpg';
+          images[9] = './img/image10.jpg';
+          
+        
+          // Change Image
+          function changeImg(){
+            time=document.getElementById("time").value
+            document.slide.src = images[i];
+        
+            if(i < images.length - 1){
+              i++;
+            } else {
+              i = 0;
+            }
+      
+            setTimeout("changeImg()", time*1000);
+          }
+          function add(){
+	        	let x = parseInt(document.getElementById('num1').value);
+        		let y = parseInt(document.getElementById('num2').value);
+        		let z = x + y;
+        		document.getElementById('display').innerHTML= z;
+      	}
+        	function subtract(){
+        		let x = parseInt(document.getElementById('num1').value);
+        		let y = parseInt(document.getElementById('num2').value);
+        		let z = x - y;
+        		document.getElementById('display').innerHTML= z;
+      	}
+        	function multiply(){
+        		let x = parseInt(document.getElementById('num1').value);
+        		let y = parseInt(document.getElementById('num2').value);
+        		let z = x * y;
+        		document.getElementById('display').innerHTML= z;
+      	}
+        	function divide(){
+        		let x = parseInt(document.getElementById('num1').value);
+        		let y = parseInt(document.getElementById('num2').value);
+        		let z = x / y;
+        		document.getElementById('display').innerHTML= z;
+      	}
+        function emailValidation(){
+          var x = document.getElementById('email').value
+          
+          if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(x)){
+            email.style.backgroundColor='green';
+          }
+          else{
+            email.style.backgroundColor='red';
+          }
+        }
+        
+        
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
